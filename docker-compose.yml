@@ -1,0 +1,12 @@
+services:
+  flask:
+    build: ./app/flask-api
+    container_name: flask-compose
+
+  nginx:
+    build: ./app/nginx
+    container_name: nginx-compose
+    ports:
+      - "8080:80"
+    depends_on:
+      - flask
